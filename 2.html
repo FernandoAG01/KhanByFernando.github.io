@@ -1,0 +1,58 @@
+<!-- galeria.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Avances</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .button {
+            padding: 15px 30px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #0b7dda;
+        }
+        .button:nth-child(1) { background-color: #f44336; }
+        .button:nth-child(2) { background-color: #e91e63; }
+        .button:nth-child(3) { background-color: #9c27b0; }
+        .button:nth-child(4) { background-color: #673ab7; }
+        .button:nth-child(1):hover { background-color: #d32f2f; }
+        .button:nth-child(2):hover { background-color: #c2185b; }
+        .button:nth-child(3):hover { background-color: #7b1fa2; }
+        .button:nth-child(4):hover { background-color: #512da8; }
+    </style>
+</head>
+<body>
+    <h1>Galería de Avances en Khan Academy</h1>
+    <div class="buttons">
+        <a href="imagen1.html" class="button">Primer Trabajo</a>
+        <a href="imagen2.html" class="button">Segundo Trabajo</a>
+        <a href="imagen3.html" class="button">Tercer Trabajo</a>
+        <a href="imagen4.html" class="button">Cuarto Trabajo</a>
+    </div>
+</body>
+</html>
