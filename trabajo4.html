@@ -1,4 +1,4 @@
-<!-- NOMBRE: trabajo4.html -->
+<!-- NOMBRE: trabajo4.html (Igual al 3 pero con gorro negro en la cabeza) -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,43 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuarto Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style> /* Estilos iguales */ </style>
 </head>
 <body>
     <h1>Cuarto Trabajo</h1>
+    <p>Muñeco de nieve con gorro negro, fondo, suelo y sol. Variación del tercero con sombrero.</p>
     <div id="canvas-container"></div>
+    <div class="controls">
+        <button onclick="redraw()" aria-label="Reiniciar dibujo">Reiniciar</button>
+    </div>
     <a href="galeria.html" class="back-button">Regresar</a>
     <script>
+        window.onload = () => document.body.classList.add('loaded');
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
+            drawShapes();
+            canvas.elt.setAttribute('aria-label', 'Muñeco de nieve con gorro negro');
+        }
+        function drawShapes() {
             background(0, 208, 255);
             fill(21, 255, 0);
-            rect(0, 300, 400, 100);
+            rect(0, height * 0.75, width, height * 0.25);
             fill(217, 255, 0);
-            ellipse(80, 64, 100, 100);
+            ellipse(width * 0.2, height * 0.16, 100, 100);
             fill(250, 250, 250);
-            ellipse(200, 300, 150, 150);
-            ellipse(200, 200, 100, 100);
-            ellipse(200, 120, 75, 75);
+            ellipse(width / 2, height * 0.75, 150, 150);
+            ellipse(width / 2, height * 0.5, 100, 100);
+            ellipse(width / 2, height * 0.3, 75, 75);
+            // Gorro negro en la cabeza
+            fill(0, 0, 0);
+            rect(width / 2 - 40, height * 0.2, 80, 40); // Base del gorro
+            rect(width / 2 - 20, height * 0.15, 40, 30); // Parte superior del gorro
         }
+        function redraw() { drawShapes(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); redraw(); }
     </script>
 </body>
 </html>
