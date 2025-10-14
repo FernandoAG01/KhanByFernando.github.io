@@ -6,66 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Octavo Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style> /* Estilos con controles */ </style>
 </head>
 <body>
     <h1>Octavo Trabajo</h1>
+    <p>Animación de nubes moviéndose con sol fijo y suelo. Código original: background(...); ellipse(...); leftX/rightX +=1;</p>
     <div id="canvas-container"></div>
+    <div class="controls">
+        <button onclick="togglePause()" aria-label="Pausar/Reanudar">Pausar</button>
+        <button onclick="resetAnim()" aria-label="Reiniciar">Reiniciar</button>
+    </div>
     <a href="galeria.html" class="back-button">Regresar</a>
     <script>
-        var leftX = 141;
-        var rightX = 259;
-        var sunRadius = 100; // Sol fijo
-        var startTime;
+        window.onload = () => document.body.classList.add('loaded');
+        let leftX = 141;
+        let rightX = 259;
+        let sunRadius = 100;
+        let startTime;
+        let paused = false;
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             noStroke();
             startTime = millis();
+            canvas.elt.setAttribute('aria-label', 'Animación de nubes moviéndose');
         }
         function draw() {
-            if (millis() - startTime > 5000) {
-                leftX = 141;
-                rightX = 259;
-                startTime = millis();
-            }
+            if (paused) return;
+            if (millis() - startTime > 5000) resetAnim();
             background(184, 236, 255);
             fill(255, 170, 0);
-            ellipse(200, 100, sunRadius, sunRadius); // Sol fijo
-            // Suelo (tierra verde abajo)
+            ellipse(width / 2, height * 0.25, sunRadius, sunRadius);
             fill(76, 168, 67);
-            rect(0, 300, 400, 100);
-            // Nubes moviéndose
+            rect(0, height * 0.75, width, height * 0.25);
             fill(255, 255, 255);
-            // Left cloud
-            ellipse(leftX, 150, 126, 97);
-            ellipse(leftX + 62, 150, 70, 60);
-            ellipse(leftX - 62, 150, 70, 60);
-            // Right cloud
-            ellipse(rightX, 100, 126, 97);
-            ellipse(rightX + 62, 100, 70, 60);
-            ellipse(rightX - 62, 100, 70, 60);
-            // Movimiento de nubes
+            ellipse(leftX * (width / 400), height * 0.375, 126, 97);
+            ellipse(leftX * (width / 400) + 62, height * 0.375, 70, 60);
+            ellipse(leftX * (width / 400) - 62, height * 0.375, 70, 60);
+            ellipse(rightX * (width / 400), height * 0.25, 126, 97);
+            ellipse(rightX * (width / 400) + 62, height * 0.25, 70, 60);
+            ellipse(rightX * (width / 400) - 62, height * 0.25, 70, 60);
             rightX += 1;
             leftX -= 1;
         }
+        function togglePause() { paused = !paused; }
+        function resetAnim() { leftX = 141; rightX = 259; startTime = millis(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); }
     </script>
 </body>
 </html>
