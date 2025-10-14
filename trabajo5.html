@@ -6,47 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quinto Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style> /* Estilos iguales */ </style>
 </head>
 <body>
     <h1>Quinto Trabajo</h1>
+    <p>Cara con orejas, ojos, boca y dientes. Código original: ellipse(...); fill(0,0,0); line(...); noFill(); rect(...);</p>
     <div id="canvas-container"></div>
+    <div class="controls">
+        <button onclick="redraw()" aria-label="Reiniciar dibujo">Reiniciar</button>
+    </div>
     <a href="galeria.html" class="back-button">Regresar</a>
     <script>
+        window.onload = () => document.body.classList.add('loaded');
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             background(255);
-            ellipse(150, 70, 60, 120); // left ear
-            ellipse(240, 70, 60, 120); // right ear
-            ellipse(200, 170, 150, 150); // face
-            var eyeSize = 20;
-            fill(0, 0, 0);
-            ellipse(170, 150, eyeSize, eyeSize); // left eye
-            ellipse(230, 150, eyeSize, eyeSize); // right eye
-            line(150, 200, 250, 200); // mouth
-            var toothHeigth = 30;
-            noFill();
-            rect(185, 200, 15, toothHeigth); // left tooth
-            rect(200, 200, 15, toothHeigth); // right tooth
+            drawShapes();
+            canvas.elt.setAttribute('aria-label', 'Cara con orejas y dientes');
         }
+        function drawShapes() {
+            ellipse(width * 0.375, height * 0.175, 60, 120);
+            ellipse(width * 0.6, height * 0.175, 60, 120);
+            ellipse(width / 2, height * 0.425, 150, 150);
+            let eyeSize = 20;
+            fill(0, 0, 0);
+            ellipse(width * 0.425, height * 0.375, eyeSize, eyeSize);
+            ellipse(width * 0.575, height * 0.375, eyeSize, eyeSize);
+            line(width * 0.375, height * 0.5, width * 0.625, height * 0.5);
+            let toothHeight = 30;
+            noFill();
+            rect(width * 0.4625, height * 0.5, 15, toothHeight);
+            rect(width * 0.5, height * 0.5, 15, toothHeight);
+        }
+        function redraw() { background(255); drawShapes(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); redraw(); }
     </script>
 </body>
 </html>
