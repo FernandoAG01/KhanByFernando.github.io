@@ -1,0 +1,56 @@
+<!-- NOMBRE: trabajo6.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexto Trabajo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sexto Trabajo</h1>
+    <div id="canvas-container"></div>
+    <a href="galeria.html" class="back-button">Regresar</a>
+    <script>
+        function setup() {
+            let canvas = createCanvas(400, 400);
+            canvas.parent('canvas-container');
+            background(255);
+            var x = 200;
+            var y = 250;
+            noStroke();
+            fill(30, 204, 91); // a nice froggy green!
+            ellipse(x, y, 200, 100); // face
+            ellipse(x - 51, y - 50, 40, 40); // left eye socket
+            ellipse(x + 50, y - 50, 40, 40); // right eye socket
+            fill(255, 255, 255); // for the whites of the eyes!
+            ellipse(x - 50, y - 50, 30, 30); // left eyeball
+            ellipse(x + 50, y - 50, 30, 30); // right eyeball
+            fill(0, 0, 0);
+            ellipse(x, y, 125, 55);
+            fill(0, 0, 0);
+            rect(x-50, y-50, 10, 10);
+            fill(0, 0, 0);
+            rect(x+50, y-50, 10, 10);
+        }
+    </script>
+</body>
+</html>
