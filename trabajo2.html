@@ -6,41 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Segundo Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style> /* Estilos iguales a trabajo1 */ </style>
 </head>
 <body>
     <h1>Segundo Trabajo</h1>
+    <p>Base con elipses y líneas (brazos). Código original: rect(0, 300, 400, 100); ellipse(...); line(...);</p>
     <div id="canvas-container"></div>
+    <div class="controls">
+        <button onclick="redraw()" aria-label="Reiniciar dibujo">Reiniciar</button>
+    </div>
     <a href="galeria.html" class="back-button">Regresar</a>
     <script>
+        window.onload = () => document.body.classList.add('loaded');
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             background(255);
-            rect(0, 300, 400, 100);
-            ellipse(200, 300, 150, 150);
-            ellipse(200, 200, 100, 100);
-            ellipse(200, 120, 75, 75);
-            line(150, 200, 100, 180);
-            line(250, 200, 300, 180);
+            drawShapes();
+            canvas.elt.setAttribute('aria-label', 'Dibujo de base, elipses y líneas');
         }
+        function drawShapes() {
+            rect(0, height * 0.75, width, height * 0.25);
+            ellipse(width / 2, height * 0.75, 150, 150);
+            ellipse(width / 2, height * 0.5, 100, 100);
+            ellipse(width / 2, height * 0.3, 75, 75);
+            line(width * 0.375, height * 0.5, width * 0.25, height * 0.45);
+            line(width * 0.625, height * 0.5, width * 0.75, height * 0.45);
+        }
+        function redraw() { background(255); drawShapes(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); redraw(); }
     </script>
 </body>
 </html>
