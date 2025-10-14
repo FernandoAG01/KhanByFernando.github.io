@@ -18,7 +18,7 @@
 </head>
 <body>
     <h1>Noveno Trabajo</h1>
-    <p>Animación de estrella fugaz cayendo hacia edificios con luna fija. Código original: background(32, 39, 84); fill(247, 231, 0); ellipse(xPos, yPos...); line(...); xPos -=0.8; etc.</p>
+    <p>Animación de estrella fugaz con edificios, ventanas fijas y luna estática.</p>
     <div id="canvas-container"></div>
     <div class="controls">
         <button onclick="togglePause()" aria-label="Pausar/Reanudar">Pausar</button>
@@ -29,58 +29,76 @@
         window.onload = () => document.body.classList.add('loaded');
         let xPos = 411;
         let yPos = 0;
-        let d = -39;
-        let startTime;
         let paused = false;
+        let startTime;
         let canvas;
+
+        // Las posiciones de las ventanas se generan una sola vez
+        let ventanas = [];
+
         function setup() {
             canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             startTime = millis();
+            generarVentanas();
             canvas.elt.setAttribute('aria-label', 'Animación de estrella fugaz con edificios y luna');
         }
-        function draw() {
-            if (paused) return;
-            if (millis() - startTime > 5000) resetAnim();
-            background(32, 39, 84);
-            // Edificios pegados al suelo con ventanas iluminadas
-            fill(50, 50, 50); // Color base edificios
-            rect(0, height * 0.75, width * 0.125, height * 0.25); // Edificio 1
-            rect(width * 0.125, height * 0.75, width * 0.1, height * 0.3); // Edificio 2
-            rect(width * 0.225, height * 0.75, width * 0.1, height * 0.35); // Edificio 3
-            rect(width * 0.325, height * 0.75, width * 0.1, height * 0.25); // Edificio 4
-            rect(width * 0.425, height * 0.75, width * 0.1, height * 0.4); // Edificio 5
-            rect(width * 0.525, height * 0.75, width * 0.1, height * 0.3); // Edificio 6
-            rect(width * 0.625, height * 0.75, width * 0.1, height * 0.35); // Edificio 7
-            rect(width * 0.725, height * 0.75, width * 0.275, height * 0.25); // Edificio 8 (más ancho)
-            // Ventanas iluminadas (patrón aleatorio)
-            fill(255, 255, 153); // Amarillo suave
-            if (frameCount % 30 === 0) { // Actualiza ventanas cada 30 frames
-                for (let x = 0; x < width; x += width * 0.05) {
-                    for (let y = height * 0.75; y < height; y += height * 0.05) {
-                        if (random() > 0.7) rect(x, y, width * 0.03, height * 0.03); // Ventanas aleatorias
+
+        function generarVentanas() {
+            ventanas = [];
+            let spacingX = width * 0.05;
+            let spacingY = height * 0.05;
+            for (let x = 0; x < width; x += spacingX) {
+                for (let y = height * 0.75; y < height; y += spacingY) {
+                    if (random() > 0.7) {
+                        ventanas.push({ x: x, y: y, w: width * 0.03, h: height * 0.03 });
                     }
                 }
             }
+        }
+
+        function draw() {
+            if (paused) return;
+            if (millis() - startTime > 5000) resetAnim();
+
+            background(32, 39, 84); // Cielo
+
+            // Luna estática
+            noStroke();
+            fill(240, 240, 200);
+            ellipse(width * 0.9, height * 0.1, 100, 100);
+
+            // Edificios más definidos
+            fill(40);
+            rect(0, height * 0.65, width * 0.1, height * 0.35);
+            rect(width * 0.1, height * 0.6, width * 0.1, height * 0.4);
+            rect(width * 0.2, height * 0.55, width * 0.1, height * 0.45);
+            rect(width * 0.3, height * 0.65, width * 0.1, height * 0.35);
+            rect(width * 0.4, height * 0.5, width * 0.1, height * 0.5);
+            rect(width * 0.5, height * 0.6, width * 0.1, height * 0.4);
+            rect(width * 0.6, height * 0.55, width * 0.1, height * 0.45);
+            rect(width * 0.7, height * 0.65, width * 0.3, height * 0.35);
+
+            // Ventanas fijas (no parpadean)
+            fill(255, 255, 153);
+            noStroke();
+            for (let v of ventanas) {
+                rect(v.x, v.y, v.w, v.h);
+            }
+
             // Estrella fugaz
             fill(247, 231, 0);
-            stroke(207, 207, 207);
-            strokeWeight(1);
-            ellipse(xPos * (width / 400), yPos * (height / 400), 20, 20);
             stroke(252, 5, 5);
-            strokeWeight(5);
-            line(xPos * (width / 400) + 6, yPos * (height / 400) - 4, width * 0.995, height * 0.01);
+            strokeWeight(3);
+            ellipse(xPos * (width / 400), yPos * (height / 400), 15, 15);
+            line(xPos * (width / 400) + 8, yPos * (height / 400) - 6, width * 0.995, height * 0.01);
             xPos -= 0.8;
             yPos += 0.6;
-            // Luna fija
-            fill(222, 222, 222);
-            stroke(207, 207, 207);
-            strokeWeight(1);
-            ellipse(d * (width / 400), height * 0.02, 116, 110);
         }
+
         function togglePause() { paused = !paused; }
         function resetAnim() { xPos = 411; yPos = 0; startTime = millis(); }
-        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); generarVentanas(); }
     </script>
 </body>
 </html>
