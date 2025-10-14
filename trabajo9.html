@@ -7,7 +7,14 @@
     <title>Noveno Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style> /* Estilos con controles */ </style>
+    <style>
+        body { margin: 0; padding: 20px; font-family: 'Roboto', sans-serif; background-color: #f0f0f0; text-align: center; opacity: 0; transition: opacity 1s; }
+        body.loaded { opacity: 1; }
+        .controls { margin: 10px; }
+        .controls button { margin: 5px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
+        p { max-width: 600px; margin: 0 auto 20px; color: #555; }
+    </style>
 </head>
 <body>
     <h1>Noveno Trabajo</h1>
@@ -36,14 +43,26 @@
             if (paused) return;
             if (millis() - startTime > 5000) resetAnim();
             background(32, 39, 84);
-            fill(50, 50, 50);
-            rect(width * 0.125, height * 0.625, 50, 150);
-            rect(width * 0.3, height * 0.5, 40, 200);
-            rect(width * 0.45, height * 0.7, 60, 120);
-            rect(width * 0.65, height * 0.55, 50, 180);
-            rect(width * 0.825, height * 0.65, 50, 140);
-            fill(100, 100, 100);
-            rect(width * 0.175, height * 0.675, 10, 10); rect(width * 0.175, height * 0.725, 10, 10);
+            // Edificios pegados al suelo con ventanas iluminadas
+            fill(50, 50, 50); // Color base edificios
+            rect(0, height * 0.75, width * 0.125, height * 0.25); // Edificio 1
+            rect(width * 0.125, height * 0.75, width * 0.1, height * 0.3); // Edificio 2
+            rect(width * 0.225, height * 0.75, width * 0.1, height * 0.35); // Edificio 3
+            rect(width * 0.325, height * 0.75, width * 0.1, height * 0.25); // Edificio 4
+            rect(width * 0.425, height * 0.75, width * 0.1, height * 0.4); // Edificio 5
+            rect(width * 0.525, height * 0.75, width * 0.1, height * 0.3); // Edificio 6
+            rect(width * 0.625, height * 0.75, width * 0.1, height * 0.35); // Edificio 7
+            rect(width * 0.725, height * 0.75, width * 0.275, height * 0.25); // Edificio 8 (más ancho)
+            // Ventanas iluminadas (patrón aleatorio)
+            fill(255, 255, 153); // Amarillo suave
+            if (frameCount % 30 === 0) { // Actualiza ventanas cada 30 frames
+                for (let x = 0; x < width; x += width * 0.05) {
+                    for (let y = height * 0.75; y < height; y += height * 0.05) {
+                        if (random() > 0.7) rect(x, y, width * 0.03, height * 0.03); // Ventanas aleatorias
+                    }
+                }
+            }
+            // Estrella fugaz
             fill(247, 231, 0);
             stroke(207, 207, 207);
             strokeWeight(1);
@@ -53,6 +72,7 @@
             line(xPos * (width / 400) + 6, yPos * (height / 400) - 4, width * 0.995, height * 0.01);
             xPos -= 0.8;
             yPos += 0.6;
+            // Luna fija
             fill(222, 222, 222);
             stroke(207, 207, 207);
             strokeWeight(1);
