@@ -58,18 +58,34 @@
             position: absolute;
             border-radius: 50%;
             opacity: 0.6;
-            animation: float 10s infinite ease-in-out;
+            animation: float linear infinite;
+            background: rgba(255, 99, 71, 0.5);
         }
-        .bubble:nth-child(1) { width: 50px; height: 50px; background: #FF6347; left: 10%; animation-duration: 8s; }
-        .bubble:nth-child(2) { width: 70px; height: 70px; background: #FFD700; left: 30%; animation-duration: 12s; }
-        .bubble:nth-child(3) { width: 40px; height: 40px; background: #00FA9A; left: 50%; animation-duration: 10s; }
-        .bubble:nth-child(4) { width: 60px; height: 60px; background: #1E90FF; left: 70%; animation-duration: 9s; }
-        .bubble:nth-child(5) { width: 80px; height: 80px; background: #FF69B4; left: 90%; animation-duration: 11s; }
         @keyframes float {
-            0% { bottom: -100px; transform: translateX(0); }
-            50% { transform: translateX(20px); }
-            100% { bottom: 100vh; transform: translateX(-20px); }
+            0% { bottom: -100px; transform: translateX(0) rotate(0deg); }
+            100% { bottom: 100vh; transform: translateX(50px) rotate(360deg); }
         }
+        /*  burbujas */
+        .bubble:nth-child(1) { width: 40px; height: 40px; left: 5%; animation-duration: 10s; background: #FF6347; }
+        .bubble:nth-child(2) { width: 60px; height: 60px; left: 15%; animation-duration: 12s; background: #FFD700; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; left: 25%; animation-duration: 8s; background: #00FA9A; }
+        .bubble:nth-child(4) { width: 70px; height: 70px; left: 35%; animation-duration: 15s; background: #1E90FF; }
+        .bubble:nth-child(5) { width: 30px; height: 30px; left: 45%; animation-duration: 9s; background: #FF69B4; }
+        .bubble:nth-child(6) { width: 80px; height: 80px; left: 55%; animation-duration: 11s; background: #FFA500; }
+        .bubble:nth-child(7) { width: 45px; height: 45px; left: 65%; animation-duration: 13s; background: #32CD32; }
+        .bubble:nth-child(8) { width: 55px; height: 55px; left: 75%; animation-duration: 7s; background: #4169E1; }
+        .bubble:nth-child(9) { width: 65px; height: 65px; left: 85%; animation-duration: 14s; background: #FF1493; }
+        .bubble:nth-child(10) { width: 35px; height: 35px; left: 95%; animation-duration: 10s; background: #00CED1; }
+        .bubble:nth-child(11) { width: 50px; height: 50px; left: 10%; animation-duration: 16s; background: #ADFF2F; }
+        .bubble:nth-child(12) { width: 70px; height: 70px; left: 20%; animation-duration: 8s; background: #FF4500; }
+        .bubble:nth-child(13) { width: 40px; height: 40px; left: 30%; animation-duration: 11s; background: #DA70D6; }
+        .bubble:nth-child(14) { width: 60px; height: 60px; left: 40%; animation-duration: 9s; background: #EEE8AA; }
+        .bubble:nth-child(15) { width: 80px; height: 80px; left: 50%; animation-duration: 12s; background: #98FB98; }
+        .bubble:nth-child(16) { width: 30px; height: 30px; left: 60%; animation-duration: 15s; background: #FFE4B5; }
+        .bubble:nth-child(17) { width: 55px; height: 55px; left: 70%; animation-duration: 10s; background: #ADD8E6; }
+        .bubble:nth-child(18) { width: 45px; height: 45px; left: 80%; animation-duration: 13s; background: #9370DB; }
+        .bubble:nth-child(19) { width: 65px; height: 65px; left: 90%; animation-duration: 7s; background: #F0E68C; }
+        .bubble:nth-child(20) { width: 50px; height: 50px; left: 0%; animation-duration: 14s; background: #FFB6C1; }
     </style>
 </head>
 <body>
@@ -77,10 +93,10 @@
     <div class="info">Estudiante: Luis Fernando Gamez Aguilera</div>
     <div class="info">Semestre: Quinto A</div>
     <a href="galeria.html" class="button">Inicio</a>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+    <!-- 20 burbujas para fondo lleno -->
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
 </body>
 </html>
