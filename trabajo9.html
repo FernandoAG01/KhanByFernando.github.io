@@ -1,0 +1,73 @@
+<!-- NOMBRE: trabajo9.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noveno Trabajo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Noveno Trabajo</h1>
+    <div id="canvas-container"></div>
+    <a href="galeria.html" class="back-button">Regresar</a>
+    <script>
+        var xPos = 411;
+        var yPos = 0;
+        var d = -39;
+        var f = 0;
+        var startTime;
+        function setup() {
+            let canvas = createCanvas(400, 400);
+            canvas.parent('canvas-container');
+            startTime = millis();
+        }
+        function draw() {
+            if (millis() - startTime > 5000) {
+                xPos = 411;
+                yPos = 0;
+                d = -39;
+                f = 0;
+                startTime = millis();
+            }
+            background(32, 39, 84);
+            //estrella
+            fill(247, 231, 0);
+            stroke(207, 207, 207);
+            strokeWeight(1);
+            ellipse(xPos, yPos, 20, 20);
+            //cola de estrella
+            stroke(252, 5, 5);
+            strokeWeight(5);
+            line(xPos+6, yPos+-4, 398, 4);
+           
+            xPos -= 0.8;
+            yPos += 0.6;
+           
+            //luna
+            fill(222, 222, 222);
+            stroke(207, 207, 207);
+            strokeWeight(1);
+            ellipse(d, 8, 116, 110);
+        }
+    </script>
+</body>
+</html>
