@@ -1,0 +1,52 @@
+<!-- NOMBRE: trabajo5.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinto Trabajo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quinto Trabajo</h1>
+    <div id="canvas-container"></div>
+    <a href="galeria.html" class="back-button">Regresar</a>
+    <script>
+        function setup() {
+            let canvas = createCanvas(400, 400);
+            canvas.parent('canvas-container');
+            background(255);
+            ellipse(150, 70, 60, 120); // left ear
+            ellipse(240, 70, 60, 120); // right ear
+            ellipse(200, 170, 150, 150); // face
+            var eyeSize = 20;
+            fill(0, 0, 0);
+            ellipse(170, 150, eyeSize, eyeSize); // left eye
+            ellipse(230, 150, eyeSize, eyeSize); // right eye
+            line(150, 200, 250, 200); // mouth
+            var toothHeigth = 30;
+            noFill();
+            rect(185, 200, 15, toothHeigth); // left tooth
+            rect(200, 200, 15, toothHeigth); // right tooth
+        }
+    </script>
+</body>
+</html>
