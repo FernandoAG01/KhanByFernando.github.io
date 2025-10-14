@@ -32,7 +32,7 @@
     <script>
         var leftX = 141;
         var rightX = 259;
-        var sunRadius = 100;
+        var sunRadius = 100; // Sol fijo
         var startTime;
         function setup() {
             let canvas = createCanvas(400, 400);
@@ -44,25 +44,27 @@
             if (millis() - startTime > 5000) {
                 leftX = 141;
                 rightX = 259;
-                sunRadius = 100;
                 startTime = millis();
             }
             background(184, 236, 255);
             fill(255, 170, 0);
-            ellipse(200, 100, sunRadius, sunRadius);
-            // clouds
+            ellipse(200, 100, sunRadius, sunRadius); // Sol fijo
+            // Suelo (tierra verde abajo)
+            fill(76, 168, 67);
+            rect(0, 300, 400, 100);
+            // Nubes moviéndose
             fill(255, 255, 255);
-            // left cloud
+            // Left cloud
             ellipse(leftX, 150, 126, 97);
-            ellipse(leftX+62, 150, 70, 60);
-            ellipse(leftX-62, 150, 70, 60);
-            // right cloud
+            ellipse(leftX + 62, 150, 70, 60);
+            ellipse(leftX - 62, 150, 70, 60);
+            // Right cloud
             ellipse(rightX, 100, 126, 97);
-            ellipse(rightX+62, 100, 70, 60);
-            ellipse(rightX-62, 100, 70, 60);
+            ellipse(rightX + 62, 100, 70, 60);
+            ellipse(rightX - 62, 100, 70, 60);
+            // Movimiento de nubes
             rightX += 1;
             leftX -= 1;
-            sunRadius += 2;
         }
     </script>
 </body>
