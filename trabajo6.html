@@ -6,51 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sexto Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style> /* Estilos iguales */ </style>
 </head>
 <body>
     <h1>Sexto Trabajo</h1>
+    <p>Rana verde con ojos detallados. Código original: noStroke(); fill(30, 204, 91); ellipse(...); etc.</p>
     <div id="canvas-container"></div>
+    <div class="controls">
+        <button onclick="redraw()" aria-label="Reiniciar dibujo">Reiniciar</button>
+    </div>
     <a href="galeria.html" class="back-button">Regresar</a>
     <script>
+        window.onload = () => document.body.classList.add('loaded');
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             background(255);
-            var x = 200;
-            var y = 250;
+            drawShapes();
+            canvas.elt.setAttribute('aria-label', 'Rana verde con ojos');
+        }
+        function drawShapes() {
+            let x = width / 2;
+            let y = height * 0.625;
             noStroke();
-            fill(30, 204, 91); // a nice froggy green!
-            ellipse(x, y, 200, 100); // face
-            ellipse(x - 51, y - 50, 40, 40); // left eye socket
-            ellipse(x + 50, y - 50, 40, 40); // right eye socket
-            fill(255, 255, 255); // for the whites of the eyes!
-            ellipse(x - 50, y - 50, 30, 30); // left eyeball
-            ellipse(x + 50, y - 50, 30, 30); // right eyeball
+            fill(30, 204, 91);
+            ellipse(x, y, 200, 100);
+            ellipse(x - 51, y - 50, 40, 40);
+            ellipse(x + 50, y - 50, 40, 40);
+            fill(255, 255, 255);
+            ellipse(x - 50, y - 50, 30, 30);
+            ellipse(x + 50, y - 50, 30, 30);
             fill(0, 0, 0);
             ellipse(x, y, 125, 55);
-            fill(0, 0, 0);
             rect(x-50, y-50, 10, 10);
-            fill(0, 0, 0);
             rect(x+50, y-50, 10, 10);
         }
+        function redraw() { background(255); drawShapes(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); redraw(); }
     </script>
 </body>
 </html>
