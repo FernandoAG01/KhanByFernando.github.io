@@ -1,0 +1,69 @@
+<!-- NOMBRE: trabajo8.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octavo Trabajo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Octavo Trabajo</h1>
+    <div id="canvas-container"></div>
+    <a href="galeria.html" class="back-button">Regresar</a>
+    <script>
+        var leftX = 141;
+        var rightX = 259;
+        var sunRadius = 100;
+        var startTime;
+        function setup() {
+            let canvas = createCanvas(400, 400);
+            canvas.parent('canvas-container');
+            noStroke();
+            startTime = millis();
+        }
+        function draw() {
+            if (millis() - startTime > 5000) {
+                leftX = 141;
+                rightX = 259;
+                sunRadius = 100;
+                startTime = millis();
+            }
+            background(184, 236, 255);
+            fill(255, 170, 0);
+            ellipse(200, 100, sunRadius, sunRadius);
+            // clouds
+            fill(255, 255, 255);
+            // left cloud
+            ellipse(leftX, 150, 126, 97);
+            ellipse(leftX+62, 150, 70, 60);
+            ellipse(leftX-62, 150, 70, 60);
+            // right cloud
+            ellipse(rightX, 100, 126, 97);
+            ellipse(rightX+62, 100, 70, 60);
+            ellipse(rightX-62, 100, 70, 60);
+            rightX += 1;
+            leftX -= 1;
+            sunRadius += 2;
+        }
+    </script>
+</body>
+</html>
