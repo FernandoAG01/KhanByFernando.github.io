@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1>Quinto Trabajo</h1>
-    <p>Cara de conejo con orejas largas, ojos, boca y dientes. Código original: ellipse(...); fill(0,0,0); line(...); noFill(); rect(...);</p>
+    <p>Cara de conejo con orejas largas, ojos, boca y dientes (alineado).</p>
     <div id="canvas-container"></div>
     <div class="controls">
         <button onclick="redraw()" aria-label="Reiniciar dibujo">Reiniciar</button>
@@ -33,29 +33,41 @@
             drawShapes();
             canvas.elt.setAttribute('aria-label', 'Cara de conejo con orejas y dientes');
         }
+
         function drawShapes() {
-            // Orejas (más largas y curvas)
-            fill(255, 228, 181); // Color piel claro
-            ellipse(width * 0.4, height * 0.2, 40, 100); // Oreja izquierda
-            ellipse(width * 0.6, height * 0.2, 40, 100); // Oreja derecha
-            // Cara
-            ellipse(width / 2, height * 0.45, 120, 120);
-            // Ojos
-            fill(0, 0, 0);
-            ellipse(width * 0.45, height * 0.4, 15, 15); // Ojo izquierdo
-            ellipse(width * 0.55, height * 0.4, 15, 15); // Ojo derecho
-            // Hocico
+            background(255);
+            fill(255, 228, 181); // color piel claro
+
+            // Orejas (más arriba y centradas)
+            ellipse(width * 0.45, height * 0.18, 40, 110); // Oreja izquierda
+            ellipse(width * 0.55, height * 0.18, 40, 110); // Oreja derecha
+
+            // Cara (centrada con las orejas)
+            ellipse(width / 2, height * 0.42, 130, 130);
+
+            // Ojos (más arriba y alineados)
+            fill(0);
+            ellipse(width * 0.47, height * 0.39, 15, 15); // Ojo izquierdo
+            ellipse(width * 0.53, height * 0.39, 15, 15); // Ojo derecho
+
+            // Nariz (más pequeña y centrada)
+            fill(0);
+            ellipse(width / 2, height * 0.45, 10, 8);
+
+            // Hocico (color claro alrededor de la nariz)
             fill(255, 228, 181);
-            ellipse(width / 2, height * 0.5, 30, 20); // Hocico pequeño
-            fill(0, 0, 0);
-            ellipse(width * 0.48, height * 0.5, 5, 5); // Nariz izquierda
-            ellipse(width * 0.52, height * 0.5, 5, 5); // Nariz derecha
-            // Boca con dientes
-            line(width * 0.45, height * 0.55, width * 0.55, height * 0.55); // Línea de boca
+            ellipse(width / 2, height * 0.47, 35, 25);
+
+            // Boca
+            stroke(0);
+            line(width * 0.49, height * 0.52, width * 0.51, height * 0.52); // pequeña línea de boca
+
+            // Dientes (centrados debajo de la boca)
             noFill();
-            rect(width * 0.48, height * 0.55, 8, 20); // Diente izquierdo
-            rect(width * 0.52, height * 0.55, 8, 20); // Diente derecho
+            rect(width * 0.485, height * 0.52, 8, 18); // Diente izquierdo
+            rect(width * 0.507, height * 0.52, 8, 18); // Diente derecho
         }
+
         function redraw() { background(255); drawShapes(); }
         function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); redraw(); }
     </script>
