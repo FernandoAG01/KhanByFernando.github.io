@@ -6,38 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+        body { margin: 0; padding: 20px; font-family: 'Roboto', sans-serif; background-color: #f0f0f0; text-align: center; opacity: 0; transition: opacity 1s; }
+        body.loaded { opacity: 1; }
+        .controls { margin: 10px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
+        p { max-width: 600px; margin: 0 auto 20px; color: #555; }
     </style>
 </head>
 <body>
     <h1>Primer Trabajo</h1>
+    <p>Dibujo estático de 3 elipses apiladas (muñeco simple). Código original Khan: ellipse(200, 300, 150, 150); ellipse(200, 200, 100, 100); ellipse(200, 140, 70, 70);</p>
     <div id="canvas-container"></div>
-    <a href="galeria.html" class="back-button">Regresar</a>
+    <div class="controls">
+        <button onclick="redraw()" aria-label="Reiniciar dibujo">Reiniciar</button>
+    </div>
+    <a href="galeria.html" class="back-button" aria-label="Regresar a galería">Regresar</a>
     <script>
+        window.onload = () => document.body.classList.add('loaded');
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             background(255);
-            ellipse(200, 300, 150, 150);
-            ellipse(200, 200, 100, 100);
-            ellipse(200, 140, 70, 70);
+            drawShapes();
+            canvas.elt.setAttribute('aria-label', 'Dibujo de 3 elipses apiladas');
         }
+        function drawShapes() {
+            ellipse(width / 2, height * 0.75, 150, 150);
+            ellipse(width / 2, height * 0.5, 100, 100);
+            ellipse(width / 2, height * 0.35, 70, 70);
+        }
+        function redraw() { background(255); drawShapes(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); redraw(); }
     </script>
 </body>
 </html>
