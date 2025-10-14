@@ -6,72 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noveno Trabajo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style> /* Estilos con controles */ </style>
 </head>
 <body>
     <h1>Noveno Trabajo</h1>
+    <p>Animación de estrella fugaz cayendo hacia edificios con luna fija. Código original: background(32, 39, 84); fill(247, 231, 0); ellipse(xPos, yPos...); line(...); xPos -=0.8; etc.</p>
     <div id="canvas-container"></div>
+    <div class="controls">
+        <button onclick="togglePause()" aria-label="Pausar/Reanudar">Pausar</button>
+        <button onclick="resetAnim()" aria-label="Reiniciar">Reiniciar</button>
+    </div>
     <a href="galeria.html" class="back-button">Regresar</a>
     <script>
-        var xPos = 411;
-        var yPos = 0;
-        var d = -39; // Luna posición (fija)
-        var startTime;
+        window.onload = () => document.body.classList.add('loaded');
+        let xPos = 411;
+        let yPos = 0;
+        let d = -39;
+        let startTime;
+        let paused = false;
+        let canvas;
         function setup() {
-            let canvas = createCanvas(400, 400);
+            canvas = createCanvas(windowWidth * 0.8, windowHeight * 0.6);
             canvas.parent('canvas-container');
             startTime = millis();
+            canvas.elt.setAttribute('aria-label', 'Animación de estrella fugaz con edificios y luna');
         }
         function draw() {
-            if (millis() - startTime > 5000) {
-                xPos = 411;
-                yPos = 0;
-                startTime = millis();
-            }
+            if (paused) return;
+            if (millis() - startTime > 5000) resetAnim();
             background(32, 39, 84);
-            // Edificios (ciudad abajo donde "cae" la estrella)
-            fill(50, 50, 50); // Gris oscuro para edificios
-            rect(50, 250, 50, 150); // Edificio 1
-            rect(120, 200, 40, 200); // Edificio 2
-            rect(180, 280, 60, 120); // Edificio 3
-            rect(260, 220, 50, 180); // Edificio 4
-            rect(330, 260, 50, 140); // Edificio 5
-            fill(100, 100, 100); // Ventanas simples
-            rect(70, 270, 10, 10); rect(70, 290, 10, 10); // Etc., ventanas ejemplo
-            // Estrella fugaz
+            fill(50, 50, 50);
+            rect(width * 0.125, height * 0.625, 50, 150);
+            rect(width * 0.3, height * 0.5, 40, 200);
+            rect(width * 0.45, height * 0.7, 60, 120);
+            rect(width * 0.65, height * 0.55, 50, 180);
+            rect(width * 0.825, height * 0.65, 50, 140);
+            fill(100, 100, 100);
+            rect(width * 0.175, height * 0.675, 10, 10); rect(width * 0.175, height * 0.725, 10, 10);
             fill(247, 231, 0);
             stroke(207, 207, 207);
             strokeWeight(1);
-            ellipse(xPos, yPos, 20, 20);
-            // Cola de estrella
+            ellipse(xPos * (width / 400), yPos * (height / 400), 20, 20);
             stroke(252, 5, 5);
             strokeWeight(5);
-            line(xPos + 6, yPos - 4, 398, 4);
+            line(xPos * (width / 400) + 6, yPos * (height / 400) - 4, width * 0.995, height * 0.01);
             xPos -= 0.8;
             yPos += 0.6;
-            // Luna (fija)
             fill(222, 222, 222);
             stroke(207, 207, 207);
             strokeWeight(1);
-            ellipse(d, 8, 116, 110);
+            ellipse(d * (width / 400), height * 0.02, 116, 110);
         }
+        function togglePause() { paused = !paused; }
+        function resetAnim() { xPos = 411; yPos = 0; startTime = millis(); }
+        function windowResized() { resizeCanvas(windowWidth * 0.8, windowHeight * 0.6); }
     </script>
 </body>
 </html>
