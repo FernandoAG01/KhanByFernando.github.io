@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Desafío: Nubes que se Separan</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <style>
+    body { text-align: center; background: #d4f1f9; }
+    a, button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #2a5298;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover, button:hover { background: #4e9af1; }
+  </style>
+</head>
+<body>
+  <script>
+    let leftX = 141;
+    let rightX = 259;
+    let sunRadius = 100;
+    function setup() { createCanvas(400, 400); }
+    function draw() {
+      background(184, 236, 255);
+      fill(255, 170, 0);
+      ellipse(200, 100, sunRadius, sunRadius);
+      fill(255);
+      ellipse(leftX, 150, 126, 97);
+      ellipse(leftX+62, 150, 70, 60);
+      ellipse(leftX-62, 150, 70, 60);
+      ellipse(rightX, 100, 126, 97);
+      ellipse(rightX+62, 100, 70, 60);
+      ellipse(rightX-62, 100, 70, 60);
+      rightX += 1;
+      leftX -= 1;
+      sunRadius += 2;
+    }
+  </script>
+  <div>
+    <button onclick="location.reload()">Reiniciar Animación</button>
+    <a href="../menu.html">Regresar</a>
+  </div>
+</body>
+</html>

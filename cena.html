@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto: ¿Qué hay de cena?</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <style>
+    body { text-align: center; background: #f4e0b0; }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #2a5298;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover { background: #4e9af1; }
+  </style>
+</head>
+<body>
+  <script>
+    function setup() {
+      createCanvas(400, 400);
+      background(186, 145, 20);
+      fill(255, 0, 0);
+      ellipse(200, 200, 350, 350);
+      ellipse(200, 200, 300, 300);
+
+      fill(139, 69, 19);
+      rect(150, 180, 100, 50, 10);
+
+      fill(34, 139, 34);
+      ellipse(230, 220, 60, 60);
+      ellipse(260, 210, 50, 50);
+      ellipse(240, 250, 40, 40);
+
+      fill(255);
+      for (let i = 120; i <= 140; i += 5) rect(i, i + 20, 10, 10, 3);
+      
+      noStroke();
+      fill(240, 155, 57);
+      ellipse(150, 150, 160, 90);
+      fill(247, 240, 232);
+      rect(225, 135, 50, 30);
+      ellipse(290, 135, 35, 30);
+      ellipse(290, 165, 35, 30);
+    }
+  </script>
+  <a href="../menu.html">Regresar</a>
+</body>
+</html>

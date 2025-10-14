@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Desafío: Dientes de Conejo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <style>
+    body { text-align: center; background: #f8e8f7; }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #2a5298;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover { background: #4e9af1; }
+  </style>
+</head>
+<body>
+  <script>
+    function setup() {
+      createCanvas(400, 400);
+      ellipse(150, 70, 60, 120);
+      ellipse(240, 70, 60, 120);
+      ellipse(200, 170, 150, 150);
+
+      fill(0);
+      ellipse(170, 150, 20, 20);
+      ellipse(230, 150, 20, 20);
+      line(150, 200, 250, 200);
+      noFill();
+      rect(185, 200, 15, 30);
+      rect(200, 200, 15, 30);
+    }
+  </script>
+  <a href="../menu.html">Regresar</a>
+</body>
+</html>

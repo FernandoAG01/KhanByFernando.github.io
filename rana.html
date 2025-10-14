@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Desafío: Rana Loca</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <style>
+    body { text-align: center; background: #b4f8c8; }
+    a, button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #2a5298;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover, button:hover { background: #4e9af1; }
+  </style>
+</head>
+<body>
+  <script>
+    function setup() {
+      createCanvas(400, 400);
+      noStroke();
+      fill(30, 204, 91);
+      ellipse(200, 250, 200, 100);
+      ellipse(149, 200, 40, 40);
+      ellipse(250, 200, 40, 40);
+      fill(255);
+      ellipse(150, 200, 30, 30);
+      ellipse(250, 200, 30, 30);
+      fill(0);
+      rect(150, 200, 10, 10);
+      rect(250, 200, 10, 10);
+      ellipse(200, 250, 125, 55);
+    }
+  </script>
+  <div>
+    <button onclick="location.reload()">Reiniciar Animación</button>
+    <a href="../menu.html">Regresar</a>
+  </div>
+</body>
+</html>

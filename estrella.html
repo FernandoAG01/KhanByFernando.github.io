@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto: Estrella Fugaz</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <style>
+    body { text-align: center; background: #020024; }
+    a, button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #2a5298;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover, button:hover { background: #4e9af1; }
+  </style>
+</head>
+<body>
+  <script>
+    let xPos = 411, yPos = 0, d = -39, f = 0;
+    function setup() { createCanvas(400, 400); }
+    function draw() {
+      background(32, 39, 84);
+      fill(247, 231, 0);
+      stroke(207);
+      ellipse(xPos, yPos, 20, 20);
+      stroke(252, 5, 5);
+      strokeWeight(5);
+      line(xPos+6, yPos-4, 398, 4);
+      xPos -= 0.8; yPos += 0.6;
+
+      fill(222);
+      ellipse(d, 8, 116, 110);
+      d += 0.4;
+
+      fill(0);
+      rect(-1, 202, 94, 248, 2);
+      rect(93, 255, 94, 248, 2);
+      rect(281, 252, 120, 281, 2);
+
+      fill(255);
+      noStroke();
+      ellipse(f+110, 129, 6, 6);
+      ellipse(f+347, 215, 6, 6);
+      ellipse(f+237, 44, 6, 6);
+      ellipse(f+58, 75, 4, 4);
+      ellipse(f+218, 90, 4, 4);
+      ellipse(f+140, 68, 3, 3);
+      ellipse(f+302, 130, 3, 3);
+      ellipse(f+253, 170, 2, 2);
+      ellipse(f+33, 182, 2, 2);
+      ellipse(f+85, 109, 1, 1);
+      ellipse(f+358, 89, 1, 1);
+      f += 0.8;
+    }
+  </script>
+  <div>
+    <button onclick="location.reload()">Reiniciar Animación</button>
+    <a href="../menu.html">Regresar</a>
+  </div>
+</body>
+</html>

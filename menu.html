@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Proyectos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+        .boton {
+            background: #2a5298;
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .boton:hover {
+            background: #4e9af1;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Mis Proyectos de Khan Academy</h1>
+
+    <div class="menu">
+        <a class="boton" href="proyectos/muñeco.html">Desafío: Muñeco de Nieve que Saluda</a>
+        <a class="boton" href="proyectos/dia_nevado.html">Desafío: Día Nevado Soleado</a>
+        <a class="boton" href="proyectos/cena.html">Proyecto: ¿Qué hay de cena?</a>
+        <a class="boton" href="proyectos/dientes.html">Desafío: Dientes de Conejo</a>
+        <a class="boton" href="proyectos/rana.html">Desafío: Rana Loca</a>
+        <a class="boton" href="proyectos/sol.html">Desafío: El Sol que Explota</a>
+        <a class="boton" href="proyectos/nubes.html">Desafío: Nubes que se Separan</a>
+        <a class="boton" href="proyectos/estrella.html">Proyecto: Estrella Fugaz</a>
+    </div>
+
+    <a href="index.html" class="btn">Regresar al Inicio</a>
+</body>
+</html>
