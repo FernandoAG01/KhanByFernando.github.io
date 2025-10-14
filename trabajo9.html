@@ -32,8 +32,7 @@
     <script>
         var xPos = 411;
         var yPos = 0;
-        var d = -39;
-        var f = 0;
+        var d = -39; // Luna posición (fija)
         var startTime;
         function setup() {
             let canvas = createCanvas(400, 400);
@@ -44,25 +43,30 @@
             if (millis() - startTime > 5000) {
                 xPos = 411;
                 yPos = 0;
-                d = -39;
-                f = 0;
                 startTime = millis();
             }
             background(32, 39, 84);
-            //estrella
+            // Edificios (ciudad abajo donde "cae" la estrella)
+            fill(50, 50, 50); // Gris oscuro para edificios
+            rect(50, 250, 50, 150); // Edificio 1
+            rect(120, 200, 40, 200); // Edificio 2
+            rect(180, 280, 60, 120); // Edificio 3
+            rect(260, 220, 50, 180); // Edificio 4
+            rect(330, 260, 50, 140); // Edificio 5
+            fill(100, 100, 100); // Ventanas simples
+            rect(70, 270, 10, 10); rect(70, 290, 10, 10); // Etc., ventanas ejemplo
+            // Estrella fugaz
             fill(247, 231, 0);
             stroke(207, 207, 207);
             strokeWeight(1);
             ellipse(xPos, yPos, 20, 20);
-            //cola de estrella
+            // Cola de estrella
             stroke(252, 5, 5);
             strokeWeight(5);
-            line(xPos+6, yPos+-4, 398, 4);
-           
+            line(xPos + 6, yPos - 4, 398, 4);
             xPos -= 0.8;
             yPos += 0.6;
-           
-            //luna
+            // Luna (fija)
             fill(222, 222, 222);
             stroke(207, 207, 207);
             strokeWeight(1);
