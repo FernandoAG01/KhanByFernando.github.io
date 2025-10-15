@@ -1,44 +1,94 @@
 body {
     margin: 0;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: 'Poppins', sans-serif;
     color: white;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    height: 100vh;
+    overflow: hidden;
 }
 
-canvas {
+/* ===== Ventana de inicio ===== */
+body.inicio {
+    background: linear-gradient(135deg, #3b82f6, #9333ea, #f59e0b);
+    animation: fondoAnimado 10s infinite alternate;
+}
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+#animacion {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
 
-.contenedor {
+.contenido {
     position: relative;
-    top: 40%;
-    transform: translateY(-50%);
+    z-index: 1;
+    text-align: center;
+    top: 35%;
 }
 
-h1 {
+.contenido h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    background: #4e9af1;
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: bold;
-    transition: 0.3s;
+.contenido h2, .contenido h3 {
+    margin: 5px;
 }
 
-.btn:hover {
-    background: #1e69d2;
+button {
+    background: #22c55e;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    background: #16a34a;
+    transform: scale(1.05);
+}
+
+/* ===== Menú ===== */
+body.menu {
+    background: linear-gradient(135deg, #2563eb, #9333ea, #f59e0b);
+    background-size: 200% 200%;
+    animation: fondoAnimado 10s infinite alternate;
+}
+
+.menu-contenedor {
+    text-align: center;
+    padding: 50px;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.botones button {
+    background: #1e40af;
+    border-radius: 12px;
+}
+
+.botones button:hover {
+    background: #3b82f6;
+}
+
+.volver {
+    background: #dc2626;
+    margin-top: 40px;
+}
+
+.volver:hover {
+    background: #ef4444;
 }
