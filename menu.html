@@ -3,45 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú de Proyectos</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <style>
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 50px;
-        }
-        .boton {
-            background: #2a5298;
-            padding: 20px;
-            border-radius: 15px;
-            color: white;
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .boton:hover {
-            background: #4e9af1;
-            transform: scale(1.05);
-        }
-    </style>
+    <title>Menú de Proyectos - Luis Fernando Gámez Aguilera</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
-<body>
-    <h1>Mis Proyectos de Khan Academy</h1>
-
-    <div class="menu">
-        <a class="boton" href="muñeco.html">Desafío: Muñeco de Nieve que Saluda</a>
-        <a class="boton" href="dia_nevado.html">Desafío: Día Nevado Soleado</a>
-        <a class="boton" href="cena.html">Proyecto: ¿Qué hay de cena?</a>
-        <a class="boton" href="dientes.html">Desafío: Dientes de Conejo</a>
-        <a class="boton" href="rana.html">Desafío: Rana Loca</a>
-        <a class="boton" href="sol.html">Desafío: El Sol que Explota</a>
-        <a class="boton" href="nubes.html">Desafío: Nubes que se Separan</a>
-        <a class="boton" href="estrella.html">Proyecto: Estrella Fugaz</a>
+<body class="menu">
+    <div class="menu-contenedor">
+        <h1>Mis Proyectos de Khan Academy</h1>
+        <div class="botones">
+            <button onclick="location.href='muñeco.html'">Muñeco de nieve que saluda</button>
+            <button onclick="location.href='dia_nevado.html'">Día nevado soleado</button>
+            <button onclick="location.href='cena.html'">¿Qué hay de cena?</button>
+            <button onclick="location.href='dientes.html'">Dientes de conejo</button>
+            <button onclick="location.href='rana.html'">Rana loca</button>
+            <button onclick="location.href='sol.html'">El sol que explota</button>
+            <button onclick="location.href='nubes.html'">Nubes que se separan</button>
+            <button onclick="location.href='estrella.html'">Estrella fugaz</button>
+        </div>
+        <button class="volver" onclick="location.href='index.html'">Regresar al Inicio</button>
     </div>
-
-    <a href="index.html" class="btn">Regresar al Inicio</a>
 </body>
 </html>
-
